@@ -1,11 +1,15 @@
-FastAPI CRUD Example
-This is a simple FastAPI project that demonstrates basic CRUD (Create, Read, Update, Delete) operations. The project is built using FastAPI and SQLite as the database.
+# FastAPI CRUD Example
 
-Features
-Create: Add new items to the database.
+This is a simple FastAPI project that demonstrates basic CRUD (Create, Read, Update, Delete) operations. The project is built using **FastAPI** and **SQLite** as the database.
 
-Read: Retrieve a single item or a list of all items.
+## 🚀 Features
 
-Update: Modify an existing item.
+- **Create**: Add new items to the database.
+- **Read**: Retrieve a single item or a list of all items.
+- **Update**: Modify an existing item.
+- **Delete**: Remove an item from the database.
 
-Delete: Remove an item from the database.
+## 🛠 Technologies Used
+
+- **FastAPI** - A modern, high-performance web framework for building APIs with Python.
+- **Uvicorn** - ASGI server for running FastAPI applications.
