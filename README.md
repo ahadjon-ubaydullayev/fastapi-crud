@@ -1,76 +1,91 @@
 # FastAPI CRUD Application
 
-This is a **FastAPI CRUD** application that performs basic Create, Read, Update, and Delete (CRUD) operations using PostgreSQL as the database and SQLAlchemy for ORM.
+## Overview
+This project is a FastAPI-based CRUD application that manages doctors and patients. It provides RESTful endpoints for creating, retrieving, updating, and deleting records for both entities.
 
 ## Features
-- FastAPI as the web framework
-- PostgreSQL as the database
-- SQLAlchemy for database interactions
-- Pydantic for data validation
-- Automatic API documentation with Swagger and Redoc
-
-## Requirements
-Make sure you have the following installed:
-
-- Python 3.8+
-- PostgreSQL
-- Git
+- Create, Read, Update, and Delete (CRUD) operations for doctors and patients.
+- Search functionality for both doctors and patients.
+- Uses PostgreSQL as the database.
+- Implements SQLAlchemy for database interactions.
 
 ## Installation
 
-### 1. Clone the Repository
-```sh
-git clone <your-repo-url>
-cd <your-project-directory>
-```
+### Prerequisites
+Ensure you have the following installed:
+- Python 3.9+
+- PostgreSQL
+- Virtual environment (optional but recommended)
 
-### 2. Create a Virtual Environment
-```sh
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-```
+### Setup
 
-### 3. Install Dependencies
-```sh
-pip install -r requirements.txt
-```
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd <your-project-directory>
+   ```
 
-### 4. Configure Environment Variables
-Create a `.env` file in the project root and add the following:
-```env
-DATABASE_URL=postgresql://postgres:<your-password>@localhost:5434/fastapicrud
-```
+2. **Create a virtual environment** (optional but recommended)
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
 
-Update `<your-password>` with your actual PostgreSQL password.
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 5. Apply Database Migrations
-```sh
-alembic upgrade head
-```
+4. **Configure the database**
+   Update the `DATABASE_URL` in your `.env` file:
+   ```env
+   DATABASE_URL=postgresql://<user>:<password>@<host>:<port>/<database>
+   ```
 
-## Running the Application
+5. **Apply migrations**
+   ```bash
+   alembic upgrade head
+   ```
 
-Start the FastAPI application with:
-```sh
-uvicorn main:app --reload
-```
-
-The application will be available at: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+6. **Run the FastAPI application**
+   ```bash
+   uvicorn main:app --reload
+   ```
 
 ## API Endpoints
 
-| Method  | Endpoint         | Description          |
-|---------|-----------------|----------------------|
-| **POST** | `/items/`       | Create a new item   |
-| **GET**  | `/items/`       | Get all items       |
-| **GET**  | `/items/{id}`   | Get a single item   |
-| **PUT**  | `/items/{id}`   | Update an item      |
-| **DELETE** | `/items/{id}` | Delete an item      |
+### Doctors
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST   | `/doctors/` | Create a new doctor |
+| GET    | `/doctors/` | Get all doctors |
+| GET    | `/doctors/{doctor_id}` | Get a doctor by ID |
+| PUT    | `/doctors/{doctor_id}` | Update a doctor by ID |
+| DELETE | `/doctors/{doctor_id}` | Delete a doctor by ID |
 
-## Automatic API Documentation
-Once the application is running, you can access interactive API documentation:
-- Swagger UI: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- Redoc: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+### Patients
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST   | `/patients/` | Create a new patient |
+| GET    | `/patients/` | Get all patients |
+| GET    | `/patients/{patient_id}` | Get a patient by ID |
+| PUT    | `/patients/{patient_id}` | Update a patient by ID |
+| DELETE | `/patients/{patient_id}` | Delete a patient by ID |
+
+### Search
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| GET    | `/search-doctors/search` | Search for doctors |
+| GET    | `/search-patients/search` | Search for patients |
 
 
+## Contributing
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request.
+
+## License
+This project is licensed under the MIT License.
 
